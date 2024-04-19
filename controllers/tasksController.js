@@ -3,7 +3,8 @@ const Tasks = require("../models/tasksModel");
 //
 const catchAsync = (fn) => {
   return (req, res, next) => {
-    fn(req, res, next).catch((err) =>
+    fn(req, res, next).catch(
+      // (err) => next(err)
       res.status(400).json({
         status: "fail",
         message: { err },
